@@ -1,0 +1,56 @@
+# INFINITE CINEPLEX BACKEND
+
+- initiate the `Infinite Cineplex Backend` project with Java 17, Spring Boot, Postgres SQL
+- added Intellij Idea environment variables for database sources link, user credentials etc.
+- added base model for common model properties
+- added flyway migration
+- added movies and genres many-to-many relationship with Basic Many-to-Many join table
+- added daily active movie show time slot allocation with many to one relationship
+- added `user` table
+- added `show_time` table relation with movie id and day time slot id
+- added spring security
+- implemented user signup process with email, password and other fields validation
+- implemented user email check for correct formatted email, and unique email
+- implemented user signup process as transactional process
+- implemented user create and response DTO
+- implemented user password encoding
+- implemented api health status route
+- implemented spring security filtering
+- implemented stateless session
+- implemented request permission based on request type on a particular path
+- implement user authentication with signup process, including email validation and password encoding
+- implement genre creation dto, dto mapper/converter
+- added global exception/error handler file
+- solved json reference and back reference indefinite loop issues 
+- implemented movie create post api with proper dto and dto converter
+- added Movie, genre, show time response DTO
+- Solved `Type definition error: [simple type, class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor]` error using response DTO method
+- understand the `lazy and eager fetch` method causing reference response instead of actual object response
+- added time slot DTO, mapper, controller, service and repository
+- added day time slot DTO, mapper, controller, service and repository
+- implemented show time api with DTO and mapper
+- implemented show time controller, service and repository
+- handled show time uniqueness with movie, time slot and date
+- implemented seat new table with reservation_seats as many-to-many table
+- implemented necessary migration to change database and model schemas
+- implemented Seats DTO, mapper, controller, service and repository
+- implemented Reservation DTO, mapper, controller, service and repository
+- handled unique booking of a seat of any particular show
+- handled restricting booking of damaged or inactive seats
+- implemented jwt utilities for stateless user authentication
+- implemented custom user details for spring security
+- implemented authentication manager for spring security
+- implemented access token and refresh token when login 
+- implemented refreshing access token with refresh token
+- implemented jwt token secret and expire time from env
+- implemented jwt config with reading properties from application properties file
+- implemented logout route for successfully logout user
+- implemented JWT authentication filter chain
+- implemented JWT token verify before accessing resources
+- implemented secure route by role and verified token
+- implemented user controller, service and repository
+- implemented all user can be only access by admins
+- implemented user details modification route
+- implemented user password update route
+- implemented route for fetching all the reservations of an user's
+- dockerize the project
