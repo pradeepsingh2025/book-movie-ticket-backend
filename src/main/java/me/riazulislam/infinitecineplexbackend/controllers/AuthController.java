@@ -48,7 +48,7 @@ public class AuthController {
 
 
         SignupResponseDTO responseBody = new SignupResponseDTO(
-                createdUser,
+                loginResponse.getUser(),
                 loginResponse.getAccessToken().toString()
         );
 
@@ -57,7 +57,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public JwtResponse loginUser(@Valid @RequestBody LoginRequestDTO loginRequestDTO, HttpServletResponse response) {
+    public ResponseEntity<SignupResponseDTO> loginUser(@Valid @RequestBody LoginRequestDTO loginRequestDTO, HttpServletResponse response) {
         LoginResponseDTO loginResponse = authService.login(loginRequestDTO);
 
         addRefreshTokenCookie(
@@ -65,7 +65,13 @@ public class AuthController {
                 loginResponse.getRefreshToken().toString()
         );
         System.out.println("returning from login service in AuthController-------------------------------------------");
-        return new JwtResponse(loginResponse.getAccessToken().toString());
+        
+        SignupResponseDTO responseBody = new SignupResponseDTO(
+                loginResponse.getUser(),
+                loginResponse.getAccessToken().toString()
+        );
+        
+        return ResponseEntity.ok(responseBody);
     }
 
     @PostMapping("/refresh")

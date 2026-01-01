@@ -51,7 +51,16 @@ public class AuthServiceImpl implements AuthService {
         Jwt refreshToken = jwtUtils.generateRefreshToken(user);
         System.out.println("accessToken and refreshToken generated-----------------------------");
 
-        return new LoginResponseDTO(accessToken, refreshToken);
+        // Convert user to DTO
+        me.riazulislam.infinitecineplexbackend.dtos.UserDTO userDTO = me.riazulislam.infinitecineplexbackend.dtos.UserDTO.builder()
+                .id(user.getId())
+                .email(user.getEmail())
+                .name(user.getName())
+                .phoneNumber(user.getPhoneNumber())
+                .role(user.getRole() == null ? null : user.getRole().name())
+                .build();
+
+        return new LoginResponseDTO(userDTO, accessToken, refreshToken);
     }
 
     @Override
@@ -74,7 +83,16 @@ public class AuthServiceImpl implements AuthService {
         Jwt accessToken = jwtUtils.generateAccessToken(user);
         Jwt refreshToken = jwtUtils.generateRefreshToken(user);
 
-        return new LoginResponseDTO(accessToken, refreshToken);
+        // Convert user to DTO
+        me.riazulislam.infinitecineplexbackend.dtos.UserDTO userDTO = me.riazulislam.infinitecineplexbackend.dtos.UserDTO.builder()
+                .id(user.getId())
+                .email(user.getEmail())
+                .name(user.getName())
+                .phoneNumber(user.getPhoneNumber())
+                .role(user.getRole() == null ? null : user.getRole().name())
+                .build();
+
+        return new LoginResponseDTO(userDTO, accessToken, refreshToken);
     }
 
     @Override

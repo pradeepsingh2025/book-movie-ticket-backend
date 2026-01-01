@@ -24,6 +24,10 @@ public class CustomUserDetailsServiceImpl implements UserDetailsService, CustomU
         if (user == null)
             throw new UsernameNotFoundException("User not found");
 
+        String stored = user.getPassword();
+        String masked = stored == null ? "null" : (stored.length() > 8 ? stored.substring(0, 6) + "...(" + stored.length() + ")" : stored);
+        System.out.println("CustomUserDetailsService: loaded user for email='" + email + "' -> storedPassword=" + masked);
+
         var authorities = Collections.singletonList(
                 new SimpleGrantedAuthority("ROLE_" + user.getRole().name())
         );
