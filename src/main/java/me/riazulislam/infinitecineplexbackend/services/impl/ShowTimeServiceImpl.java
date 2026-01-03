@@ -72,4 +72,13 @@ public class ShowTimeServiceImpl implements ShowTimeService {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         }
     }
+
+    @Override
+    public List<ShowTime> getShowTimesByMovieId(Long movieId) {
+        try {
+            return showTimeRepository.findByMovieId(movieId);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+        }
+    }
 }

@@ -48,7 +48,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(c -> c
                         .requestMatchers(HttpMethod.POST, "/api/auth/signup", "/api/auth/login", "/api/auth/refresh").permitAll()
                         .requestMatchers("/api/health").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/movies/**", "/api/time-slots/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/movies/**", "/api/time-slots/**", "/api/show-times/**").permitAll()
                         .requestMatchers(request -> {
                             String path = request.getRequestURI();
                             String method = request.getMethod();

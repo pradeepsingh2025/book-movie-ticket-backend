@@ -16,7 +16,6 @@ public class TimeSlotMapper {
                 .id(timeSlot.getId())
                 .name(timeSlot.getName())
                 .startTime(timeSlot.getStartTime())
-                .duration(timeSlot.getDuration())
                 .build();
     }
 
@@ -27,7 +26,6 @@ public class TimeSlotMapper {
         return TimeSlot.builder()
                 .name(dto.getName())
                 .startTime(dto.getStart_time())
-                .duration(dto.getDuration())
                 .build();
     }
 }

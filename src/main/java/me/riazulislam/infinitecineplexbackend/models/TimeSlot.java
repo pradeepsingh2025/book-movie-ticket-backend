@@ -8,8 +8,6 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.*;
 
-import java.time.Duration;
-import java.time.Instant;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +27,7 @@ public class TimeSlot extends BaseModel{
     @JsonFormat(pattern = "HH:mm:ss")
     private LocalTime startTime;
 
-    @Column(nullable = false)
-    private Duration duration;
+    
 
     @OneToMany(mappedBy = "timeSlot", orphanRemoval = false)
     @JsonBackReference

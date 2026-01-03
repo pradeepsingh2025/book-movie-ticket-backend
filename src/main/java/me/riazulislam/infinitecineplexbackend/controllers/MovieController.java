@@ -39,19 +39,19 @@ public class MovieController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<MovieDTO> getMovieById(@PathVariable Long id) {
+    public ResponseEntity<MovieDTO> getMovieById(@PathVariable("id") Long id) {
         Movie movie = movieService.getMovieById(id);
         return ResponseEntity.ok(movieMapper.toDTO(movie));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<MovieDTO> updateMovie(@PathVariable Long id, @RequestBody UpdateMovieDTO movieDTO) {
+    public ResponseEntity<MovieDTO> updateMovie(@PathVariable("id") Long id, @RequestBody UpdateMovieDTO movieDTO) {
         Movie updatedMovie = movieService.updateMovie(id, movieDTO);
         return ResponseEntity.ok(movieMapper.toDTO(updatedMovie));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteMovie(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteMovie(@PathVariable("id") Long id) {
         movieService.deleteMovie(id);
         return ResponseEntity.noContent().build();
     }

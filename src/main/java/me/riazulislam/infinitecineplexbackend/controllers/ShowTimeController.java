@@ -38,7 +38,7 @@ public class ShowTimeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ShowTimeDTO> getShowTimeById(@PathVariable Long id) {
+    public ResponseEntity<ShowTimeDTO> getShowTimeById(@PathVariable("id") Long id) {
         ShowTime showTime = showTimeService.getShowTimeById(id);
         return ResponseEntity.ok(showTimeMapper.toDTO(showTime));
     }
@@ -53,5 +53,14 @@ public class ShowTimeController {
     public ResponseEntity<Void> deleteShowTime(@PathVariable Long id) {
         showTimeService.deleteShowTime(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/movie/{movieId}")
+    public ResponseEntity<List<ShowTimeDTO>> getShowTimesByMovieId(@PathVariable("movieId") Long movieId) {
+        List<ShowTime> showTimes = showTimeService.getShowTimesByMovieId(movieId);
+        List<ShowTimeDTO> showTimeDTOs = showTimes.stream()
+                .map(showTimeMapper::toDTO)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(showTimeDTOs);
     }
 }

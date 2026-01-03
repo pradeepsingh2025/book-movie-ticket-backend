@@ -27,9 +27,11 @@ public class MovieMapper {
 
         List<Genre> genres = new ArrayList<>();
 
-        for  (Long genreId : genreIds) {
-            Genre genre = genreService.getGenreById(genreId);
-            genres.add(genre);
+        if (genreIds != null) {
+            for (Long genreId : genreIds) {
+                Genre genre = genreService.getGenreById(genreId);
+                genres.add(genre);
+            }
         }
 
         return Movie.builder()
@@ -44,11 +46,19 @@ public class MovieMapper {
     }
 
     public MovieDTO toDTO(Movie movie) {
+        if (movie == null) {
+            return null;
+        }
+
         List<GenreDTO> genreDTOList = new ArrayList<>();
         List<Genre> genresList = movie.getGenres();
 
-        for(Genre genre: genresList) {
-            genreDTOList.add(genreMapper.toDTO(genre));
+        if (genresList != null) {
+            for (Genre genre : genresList) {
+                if (genre != null) {
+                    genreDTOList.add(genreMapper.toDTO(genre));
+                }
+            }
         }
 
         return MovieDTO.builder()
