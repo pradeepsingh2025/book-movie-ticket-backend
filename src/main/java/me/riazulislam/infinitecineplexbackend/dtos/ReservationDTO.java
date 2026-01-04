@@ -12,5 +12,5 @@ import java.util.List;
 public class ReservationDTO {
     private ShowTimeDTO show_time;
     private UserDTO user;
-    private List<SeatDTO> reservation_seats;
+    
 }

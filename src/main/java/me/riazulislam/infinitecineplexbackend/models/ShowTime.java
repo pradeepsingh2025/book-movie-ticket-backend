@@ -20,7 +20,7 @@ import java.util.List;
 public class ShowTime extends BaseModel {
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
-    private ShowStatusEnum showStatus = ShowStatusEnum.Scheduled;
+    private ShowStatusEnum showStatus;
 
     @ManyToOne
     @JoinColumn(name = "movie_id", nullable = false)
@@ -37,9 +37,6 @@ public class ShowTime extends BaseModel {
 
     @OneToMany(mappedBy = "showTime")
     @JsonBackReference
-    private List<Reservation> reservations = new ArrayList<>();
+    private List<Reservation> reservations;
 
-//    @OneToMany(mappedBy = "showTime")
-//    @JsonBackReference
-//    private List<ReservationSeat> reservationSeats = new ArrayList<>();
 }

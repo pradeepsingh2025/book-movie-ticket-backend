@@ -12,5 +12,5 @@ import java.util.List;
 public class CreateReservationDTO {
     private Long show_time_id;
     private Long user_id;
-    private List<Long> reservation_seats_id;
+    
 }

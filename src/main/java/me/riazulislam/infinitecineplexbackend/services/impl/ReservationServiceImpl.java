@@ -2,10 +2,8 @@ package me.riazulislam.infinitecineplexbackend.services.impl;
 
 import lombok.AllArgsConstructor;
 import me.riazulislam.infinitecineplexbackend.dtos.UpdateReservationDTO;
-import me.riazulislam.infinitecineplexbackend.enums.SeatStatusEnum;
 import me.riazulislam.infinitecineplexbackend.mappers.ReservationMapper;
 import me.riazulislam.infinitecineplexbackend.models.Reservation;
-import me.riazulislam.infinitecineplexbackend.models.Seat;
 import me.riazulislam.infinitecineplexbackend.repositories.ReservationRepository;
 import me.riazulislam.infinitecineplexbackend.services.ReservationService;
 import org.springframework.http.HttpStatus;
@@ -23,18 +21,7 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public Reservation createNewReservation(Reservation reservation) {
         try {
-            for(Seat seat: reservation.getSeats()) {
-                if (seat.getStatus() != SeatStatusEnum.Active) {
-                    throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Seat " + seat.getSeat() + " of this show can not be booked");
-                }
-
-                boolean alreadyBooked = reservationRepository.existsByShowTime_IdAndSeats_Id(reservation.getShowTime().getId(), seat.getId());
-
-                if (alreadyBooked) {
-                    throw new ResponseStatusException(HttpStatus.CONFLICT, "Seat " + seat.getSeat() + " of this show is already booked");
-                }
-            }
-
+            // Seat-related checks removed — seats table and join table have been dropped
             return reservationRepository.save(reservation);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
