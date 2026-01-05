@@ -15,6 +15,10 @@ public class HallMapper {
         }
         return HallDTO.builder()
                 .id(hall.getId())
+                .name(hall.getName())
+                .code(hall.getCode())
+                .capacity(hall.getCapacity())
+                .type(hall.getType())
                 .availabilityStatus(hall.getAvailabilityStatus())
                 .build();
     }
@@ -24,6 +28,10 @@ public class HallMapper {
             return null;
         }
         return Hall.builder()
+                .name(createHallDto.getName())
+                .code(createHallDto.getCode())
+                .capacity(createHallDto.getCapacity())
+                .type(createHallDto.getType())
                 .availabilityStatus(createHallDto.getAvailabilityStatus())
                 .build();
     }
@@ -31,6 +39,18 @@ public class HallMapper {
     public void updateEntityFromDto(UpdateHallDTO updateHallDto, Hall hall) {
         if (updateHallDto == null || hall == null) {
             return;
+        }
+        if (updateHallDto.getName() != null) {
+            hall.setName(updateHallDto.getName());
+        }
+        if (updateHallDto.getCode() != null) {
+            hall.setCode(updateHallDto.getCode());
+        }
+        if (updateHallDto.getCapacity() != null) {
+            hall.setCapacity(updateHallDto.getCapacity());
+        }
+        if (updateHallDto.getType() != null) {
+            hall.setType(updateHallDto.getType());
         }
         if (updateHallDto.getAvailabilityStatus() != null) {
             hall.setAvailabilityStatus(updateHallDto.getAvailabilityStatus());

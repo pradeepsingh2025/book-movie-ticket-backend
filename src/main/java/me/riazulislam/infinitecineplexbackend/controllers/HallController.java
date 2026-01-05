@@ -20,25 +20,26 @@ public class HallController {
     private final HallService hallService;
     
     @PostMapping
-    public ResponseEntity<HallDTO > createHall(@Valid @RequestBody CreateHallDTO createHallDto) {
+    public ResponseEntity<HallDTO> createHall(@Valid @RequestBody CreateHallDTO createHallDto) {
         HallDTO  createdHall = hallService.createHall(createHallDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdHall);
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<HallDTO > getHallById(@PathVariable Long id) {
+    public ResponseEntity<HallDTO> getHallById(@PathVariable Long id) {
         HallDTO  hallDto = hallService.getHallById(id);
         return ResponseEntity.ok(hallDto);
     }
     
     @GetMapping
-    public ResponseEntity<List<HallDTO >> getAllHalls() {
-        List<HallDTO > halls = hallService.getAllHalls();
+    public ResponseEntity<List<HallDTO>> getAllHalls() {
+        System.out.println("hall controller for getting all halls---------------|||||||||||||||||||----------------------------------");
+        List<HallDTO> halls = hallService.getAllHalls();
         return ResponseEntity.ok(halls);
     }
     
     @PutMapping("/{id}")
-    public ResponseEntity<HallDTO > updateHall(
+    public ResponseEntity<HallDTO> updateHall(
             @PathVariable Long id,
             @Valid @RequestBody UpdateHallDTO  updateHallDto) {
         HallDTO updatedHall = hallService.updateHall(id, updateHallDto);
