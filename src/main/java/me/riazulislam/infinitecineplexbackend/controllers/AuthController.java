@@ -101,7 +101,7 @@ public class AuthController {
     ) {
         Cookie cookie = new Cookie("refreshToken", refreshToken);
         cookie.setHttpOnly(true);
-        cookie.setSecure(true);
+        cookie.setSecure(jwtConfig.isSecure());
         cookie.setPath("/api/auth/refresh");
         cookie.setMaxAge(jwtConfig.getRefreshTokenExpiration());
         response.addCookie(cookie);
