@@ -42,12 +42,11 @@ public class UserServiceImpl implements UserService {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Email already registered");
         }
 
-        System.out.println("Before encoding the password in createNewUSer[UserServiceImpl.createNewUser]------------------------------- "+user.getPassword());
+        
 
         String encoded = passwordEncoder.encode(user.getPassword());
 
-        System.out.println("After encoding the password in createNewUSer[UserServiceImpl.createNewUser]------------------------------- "+encoded);
-
+        
         User newUser = User.builder()
                 .email(normalizedEmail)
                 .password(encoded)
@@ -71,14 +70,13 @@ public class UserServiceImpl implements UserService {
                 .role(createdUser.getRole() == null ? null : createdUser.getRole().name())
                 .build();
 
-        System.out.println("Created user DTO from [UserServiceLmpl.createNewUser]-----------------"+ createdUserDTO);
-
         return createdUserDTO;
     }
 
     @Override
     public List<UserDTO> getAllUsers() {
         List<User> users = userRepository.findAll();
+        
         return users.stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());

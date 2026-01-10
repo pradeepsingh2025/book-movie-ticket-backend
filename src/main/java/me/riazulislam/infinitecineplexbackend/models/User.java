@@ -29,7 +29,7 @@ public class User extends BaseModel{
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "varchar(255) default 'USER'")
-    private RoleEnum role = RoleEnum.USER;
+    private RoleEnum role;
 
     @OneToMany(mappedBy = "user")
     @JsonBackReference
