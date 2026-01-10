@@ -57,7 +57,7 @@ public class SecurityConfig {
                                             path.startsWith("/api/time-slots/") || path.startsWith("/api/day-time-slots/"));
                         }).hasRole(RoleEnum.ADMIN.name())
                         .requestMatchers(HttpMethod.GET, "/api/users").hasRole(RoleEnum.ADMIN.name())
-                        .requestMatchers(HttpMethod.GET, "/api/halls").hasRole(RoleEnum.ADMIN.name())
+                        .requestMatchers(HttpMethod.GET, "/api/halls/available").hasRole(RoleEnum.ADMIN.name())
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)

@@ -37,5 +37,5 @@ public class Hall extends BaseModel {
     
     // Note: availabilityStatus format:
     // Key: showId (Long)
-    // Value: timeframe as String "HH:mm:ss - HH:mm:ss" (e.g., "19:15:00 - 22:30:00")
+    // Value: "YYYY-MM-DD HH:mm:ss - HH:mm:ss" (e.g., "2026-01-15 19:15:00 - 22:30:00")
 }

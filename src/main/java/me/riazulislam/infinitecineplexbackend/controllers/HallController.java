@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import me.riazulislam.infinitecineplexbackend.dtos.CreateHallDTO ;
 import me.riazulislam.infinitecineplexbackend.dtos.HallDTO ;
+import me.riazulislam.infinitecineplexbackend.dtos.TimeFrameDTO ; 
 import me.riazulislam.infinitecineplexbackend.dtos.UpdateHallDTO ;
 import me.riazulislam.infinitecineplexbackend.services.HallService;
 import org.springframework.http.HttpStatus;
@@ -36,6 +37,25 @@ public class HallController {
         System.out.println("hall controller for getting all halls---------------|||||||||||||||||||----------------------------------");
         List<HallDTO> halls = hallService.getAllHalls();
         return ResponseEntity.ok(halls);
+    }
+
+    // @PostMapping("/available")
+    // public ResponseEntity<List<HallDTO>> getAvailableHalls(@Valid @RequestBody TimeFrameDTO timeFrameDto) {
+    //     List<HallDTO> availableHalls = hallService.getAvailableHalls(
+    //             timeFrameDto.getStartTime(), 
+    //             timeFrameDto.getEndTime()
+    //     );
+    //     return ResponseEntity.ok(availableHalls);
+    // }
+
+    @PostMapping("/available")
+    public ResponseEntity<List<HallDTO>> getAvailableHalls(@Valid @RequestBody TimeFrameDTO timeFrameDto) {
+        List<HallDTO> availableHalls = hallService.getAvailableHalls(
+                timeFrameDto.getDate(),
+                timeFrameDto.getStartTime(), 
+                timeFrameDto.getEndTime()
+        );
+        return ResponseEntity.ok(availableHalls);
     }
     
     @PutMapping("/{id}")
