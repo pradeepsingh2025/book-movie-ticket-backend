@@ -58,6 +58,7 @@ public class SecurityConfig {
                         }).hasRole(RoleEnum.ADMIN.name())
                         .requestMatchers(HttpMethod.GET, "/api/users").hasRole(RoleEnum.ADMIN.name())
                         .requestMatchers(HttpMethod.GET, "/api/halls/available").hasRole(RoleEnum.ADMIN.name())
+                        .requestMatchers(HttpMethod.POST, "/api/show-times").hasRole(RoleEnum.ADMIN.name())
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)

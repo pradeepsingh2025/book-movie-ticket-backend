@@ -1,8 +1,11 @@
 package me.riazulislam.infinitecineplexbackend.services;
 
 import me.riazulislam.infinitecineplexbackend.dtos.UpdateShowTimeDTO;
+import me.riazulislam.infinitecineplexbackend.enums.DaysEnum;
 import me.riazulislam.infinitecineplexbackend.models.ShowTime;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 public interface ShowTimeService {
@@ -12,4 +15,15 @@ public interface ShowTimeService {
     ShowTime updateShowTime(Long id, UpdateShowTimeDTO showTimeDTO);
     void deleteShowTime(Long id);
     List<ShowTime> getShowTimesByMovieId(Long movieId);
+
+    List<ShowTime> getShowTimesByHallId(Long hallId);
+
+    List<ShowTime> getShowTimesByShowDate(LocalDate showDate);
+
+    List<ShowTime> getShowTimesByMovieIdAndShowDate(Long movieId, LocalDate showDate);
+
+    List<ShowTime> getShowTimesByDay(DaysEnum day);
+
+    /** Returns shows in the same hall on the date that overlap [startTime, endTime] */
+    boolean isOverlappingShow(Long hallId, LocalDate showDate, LocalTime startTime, LocalTime endTime);
 }

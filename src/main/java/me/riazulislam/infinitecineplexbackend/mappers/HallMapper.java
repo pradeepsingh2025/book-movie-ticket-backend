@@ -19,7 +19,6 @@ public class HallMapper {
                 .code(hall.getCode())
                 .capacity(hall.getCapacity())
                 .type(hall.getType())
-                .availabilityStatus(hall.getAvailabilityStatus())
                 .build();
     }
     
@@ -32,7 +31,6 @@ public class HallMapper {
                 .code(createHallDto.getCode())
                 .capacity(createHallDto.getCapacity())
                 .type(createHallDto.getType())
-                .availabilityStatus(createHallDto.getAvailabilityStatus())
                 .build();
     }
     
@@ -51,9 +49,6 @@ public class HallMapper {
         }
         if (updateHallDto.getType() != null) {
             hall.setType(updateHallDto.getType());
-        }
-        if (updateHallDto.getAvailabilityStatus() != null) {
-            hall.setAvailabilityStatus(updateHallDto.getAvailabilityStatus());
         }
     }
 }

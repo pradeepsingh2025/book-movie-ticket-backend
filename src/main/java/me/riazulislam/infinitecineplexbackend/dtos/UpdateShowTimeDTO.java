@@ -4,6 +4,8 @@ import lombok.*;
 import me.riazulislam.infinitecineplexbackend.enums.ShowStatusEnum;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
+import me.riazulislam.infinitecineplexbackend.enums.DaysEnum;
 
 @Getter
 @Setter
@@ -12,7 +14,10 @@ import java.time.LocalDate;
 @Builder
 public class UpdateShowTimeDTO {
     private ShowStatusEnum status;
-    private Long movie_id;
-    private Long day_time_slot;
-    private LocalDate show_date;
+    private Long movieId;
+    private DaysEnum day;
+    private LocalTime startTime;
+    private LocalTime endTime;
+    private Long hallId;
+    private LocalDate showDate;
 }

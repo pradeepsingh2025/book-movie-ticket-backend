@@ -3,10 +3,12 @@ package me.riazulislam.infinitecineplexbackend.models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
+import me.riazulislam.infinitecineplexbackend.enums.DaysEnum;
 import me.riazulislam.infinitecineplexbackend.enums.ShowStatusEnum;
 
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,12 +30,23 @@ public class ShowTime extends BaseModel {
     private Movie movie;
 
     @ManyToOne
-    @JoinColumn(name = "slot_id", nullable = false)
+    @JoinColumn(name = "hall_id", nullable = false)
     @JsonBackReference
-    private DayTimeSlot dayTimeSlot;
+    private Hall hall;
+
+     // Explicit times (important for overlap detection)
+    @Column(name = "start_time", nullable = false)
+    private LocalTime startTime;
+
+    @Column(name = "end_time", nullable = false)
+    private LocalTime endTime;
 
     @Column(name = "show_date", nullable = false)
     private LocalDate showDate;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private DaysEnum day;
 
     @OneToMany(mappedBy = "showTime")
     @JsonBackReference
