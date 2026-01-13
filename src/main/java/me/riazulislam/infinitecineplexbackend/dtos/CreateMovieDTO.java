@@ -32,6 +32,8 @@ public class CreateMovieDTO {
     @NotNull(message = "Movie poster image is required")
     private String posterImage;
 
+    private String trailerURL;
+
     private List<Long> genres;
 
 //    @OneToMany(mappedBy = "movie")

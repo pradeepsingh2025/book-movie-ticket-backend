@@ -18,6 +18,7 @@ public class MovieDTO {
     private Duration duration;
     private Double rating;
     private String posterImage;
+    private String trailerURL;
     private List<GenreDTO> genres;
     private List<ShowTimeDTO> showTimes;
 }

@@ -41,6 +41,7 @@ public class MovieMapper {
                 .rating(dto.getRating())
                 .duration(dto.getDuration())
                 .posterImage(dto.getPosterImage())
+                .trailerURL(dto.getTrailerURL())
                 .genres(genres)
                 .build();
     }
@@ -69,6 +70,7 @@ public class MovieMapper {
                 .duration(movie.getDuration())
                 .rating(movie.getRating())
                 .posterImage(movie.getPosterImage())
+                .trailerURL(movie.getTrailerURL())
                 .genres(genreDTOList)
                 .build();
     }
@@ -91,6 +93,9 @@ public class MovieMapper {
         }
         if (dto.getPosterImage() != null) {
             existing.setPosterImage(dto.getPosterImage());
+        }
+        if (dto.getTrailerURL() != null) {
+            existing.setTrailerURL(dto.getTrailerURL());
         }
         if (dto.getGenres() != null) {
             List<Genre> genres = new ArrayList<>();

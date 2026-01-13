@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 
 public enum ShowStatusEnum {
     SCHEDULED,
+    FULL,
+    FILLING,
     COMPLETED,
     CANCELLED;
 

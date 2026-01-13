@@ -24,6 +24,7 @@ public class ShowTimeMapper {
     private final MovieRepository movieRepository;
     private final HallRepository hallRepository;
     private final MovieMapper movieMapper;
+    private final HallMapper hallMapper;
 
     private me.riazulislam.infinitecineplexbackend.enums.DaysEnum dayFromDate(java.time.LocalDate date) {
         if (date == null) return null;
@@ -77,6 +78,7 @@ public class ShowTimeMapper {
             .endTime(showTime.getEndTime())
             .showDate(showTime.getShowDate())
             .hallId(hallId)
+            .hall(hallMapper.toDto(showTime.getHall()))
             .reservationIds(reservationIds)
             .build();
     }

@@ -32,6 +32,9 @@ public class Movie extends BaseModel {
     @Column(name = "poster_image")
     private String posterImage;
 
+    @Column(name = "trailer_url")
+    private String trailerURL;
+
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "movie_genres",

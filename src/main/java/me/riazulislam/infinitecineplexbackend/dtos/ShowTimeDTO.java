@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 import me.riazulislam.infinitecineplexbackend.enums.DaysEnum;
+import me.riazulislam.infinitecineplexbackend.dtos.HallDTO;
 
 @Getter
 @Setter
@@ -21,5 +22,6 @@ public class ShowTimeDTO {
     private LocalTime endTime;
     private LocalDate showDate;
     private Long hallId;
+    private HallDTO hall;
     private List<Long> reservationIds;
 }

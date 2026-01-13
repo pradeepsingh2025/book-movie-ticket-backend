@@ -17,5 +17,6 @@ public class UpdateMovieDTO {
     private Duration duration;
     private Double rating;
     private String posterImage;
+    private String trailerURL;
     private List<Long> genres;
 }
