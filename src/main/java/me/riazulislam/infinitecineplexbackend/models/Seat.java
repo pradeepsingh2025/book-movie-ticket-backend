@@ -1,8 +1,11 @@
 package me.riazulislam.infinitecineplexbackend.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 import lombok.*;
 import me.riazulislam.infinitecineplexbackend.enums.SeatStatusEnum;
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,5 +30,9 @@ public class Seat extends BaseModel {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private SeatStatusEnum status;
+
+    @ManyToMany(mappedBy = "seats")
+    @JsonBackReference
+    private List<Reservation> reservations;
 
 }

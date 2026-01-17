@@ -8,11 +8,7 @@ import me.riazulislam.infinitecineplexbackend.enums.SeatStatusEnum;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateSeatDTO {
-    private String seat;
+public class UpdateSeatDTO {
+    // Only status is required for status updates
     private SeatStatusEnum status;
-    // Associations represented by their IDs for creation
-    private Long showTimeId;
-    private Long hallId;
 }
-

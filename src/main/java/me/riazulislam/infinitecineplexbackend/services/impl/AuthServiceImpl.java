@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import me.riazulislam.infinitecineplexbackend.dtos.LoginRequestDTO;
 import me.riazulislam.infinitecineplexbackend.dtos.LoginResponseDTO;
 import me.riazulislam.infinitecineplexbackend.dtos.CreateUserDTO;
+import me.riazulislam.infinitecineplexbackend.models.AuthResult;
 import me.riazulislam.infinitecineplexbackend.models.Jwt;
 import me.riazulislam.infinitecineplexbackend.models.User;
 import me.riazulislam.infinitecineplexbackend.repositories.UserRepository;
@@ -36,11 +37,10 @@ public class AuthServiceImpl implements AuthService {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
                             email,
-                            loginRequestDTO.getPassword()
-                    )
-            );
+                            loginRequestDTO.getPassword()));
         } catch (Exception e) {
-            System.err.println("Authentication failed for email: " + email + " - " + e.getClass().getSimpleName() + ": " + e.getMessage());
+            System.err.println("Authentication failed for email: " + email + " - " + e.getClass().getSimpleName() + ": "
+                    + e.getMessage());
             throw new org.springframework.security.authentication.BadCredentialsException("Invalid credentials", e);
         }
 
@@ -52,7 +52,8 @@ public class AuthServiceImpl implements AuthService {
         System.out.println("accessToken and refreshToken generated-----------------------------");
 
         // Convert user to DTO
-        me.riazulislam.infinitecineplexbackend.dtos.UserDTO userDTO = me.riazulislam.infinitecineplexbackend.dtos.UserDTO.builder()
+        me.riazulislam.infinitecineplexbackend.dtos.UserDTO userDTO = me.riazulislam.infinitecineplexbackend.dtos.UserDTO
+                .builder()
                 .id(user.getId())
                 .email(user.getEmail())
                 .name(user.getName())
@@ -70,11 +71,9 @@ public class AuthServiceImpl implements AuthService {
         System.out.println("Authenticating new signup for email: " + email);
 
         authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken(
-                email,
-                createUserDTO.getPassword()
-            )
-        );
+                new UsernamePasswordAuthenticationToken(
+                        email,
+                        createUserDTO.getPassword()));
 
         // Load user
         User user = userRepository.findByEmail(email);
@@ -84,7 +83,8 @@ public class AuthServiceImpl implements AuthService {
         Jwt refreshToken = jwtUtils.generateRefreshToken(user);
 
         // Convert user to DTO
-        me.riazulislam.infinitecineplexbackend.dtos.UserDTO userDTO = me.riazulislam.infinitecineplexbackend.dtos.UserDTO.builder()
+        me.riazulislam.infinitecineplexbackend.dtos.UserDTO userDTO = me.riazulislam.infinitecineplexbackend.dtos.UserDTO
+                .builder()
                 .id(user.getId())
                 .email(user.getEmail())
                 .name(user.getName())
@@ -96,14 +96,16 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public Jwt refreshAccessToken(String refreshToken) {
+    public AuthResult refreshAccessToken(String refreshToken) {
         Jwt jwt = jwtUtils.parseToken(refreshToken);
         if (jwt == null || jwt.isExpired()) {
             throw new BadCredentialsException("Invalid refresh token");
         }
 
-        User user = userRepository.findById(jwt.getUserId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+        User user = userRepository.findById(jwt.getUserId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
 
-        return jwtUtils.generateAccessToken(user);
+        String accessToken = jwtUtils.generateAccessToken(user).toString();
+        return new AuthResult(accessToken, user);
     }
 }

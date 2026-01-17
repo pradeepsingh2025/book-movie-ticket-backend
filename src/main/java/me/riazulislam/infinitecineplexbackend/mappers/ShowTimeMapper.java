@@ -57,6 +57,7 @@ public class ShowTimeMapper {
                 .hall(hall)
                 .startTime(showTimeDTO.getStartTime())
                 .endTime(showTimeDTO.getEndTime())
+            .price(showTimeDTO.getPrice())
                 .day(day)
                 .showDate(showTimeDTO.getShowDate())
                 .build();
@@ -80,6 +81,7 @@ public class ShowTimeMapper {
             .hallId(hallId)
             .hall(hallMapper.toDto(showTime.getHall()))
             .reservationIds(reservationIds)
+                .price(showTime.getPrice())
             .build();
     }
 
@@ -106,6 +108,9 @@ public class ShowTimeMapper {
         }
         if (dto.getShowDate() != null) {
             existing.setShowDate(dto.getShowDate());
+        }
+        if (dto.getPrice() != null) {
+            existing.setPrice(dto.getPrice());
         }
         return existing;
     }
