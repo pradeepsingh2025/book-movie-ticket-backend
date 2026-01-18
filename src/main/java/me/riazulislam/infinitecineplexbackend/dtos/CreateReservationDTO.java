@@ -22,6 +22,6 @@ public class CreateReservationDTO {
     private Long userId;
 
     @NotEmpty(message = "reservationSeatsId cannot be empty")
-    @JsonAlias({ "reservation_seats_id", "reservationSeatsId", "reservation_seat_ids" })
+    @JsonAlias({ "reservation_seats_id", "reservationSeatsId", "reservation_seat_ids", "seatreservation_seats_id" })
     private List<Long> reservationSeatsId = new ArrayList<>();
 }

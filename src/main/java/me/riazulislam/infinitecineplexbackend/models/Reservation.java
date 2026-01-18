@@ -34,4 +34,8 @@ public class Reservation extends BaseModel{
     @JsonManagedReference
     private List<Seat> seats = new ArrayList<>();
 
+    @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<ReservationSeat> reservationSeats = new ArrayList<>();
+
 }

@@ -1,13 +1,8 @@
 package me.riazulislam.infinitecineplexbackend.dtos;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import me.riazulislam.infinitecineplexbackend.models.Genre;
-import me.riazulislam.infinitecineplexbackend.models.ShowTime;
-
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
 
 @Builder
@@ -36,6 +31,4 @@ public class CreateMovieDTO {
 
     private List<Long> genres;
 
-//    @OneToMany(mappedBy = "movie")
-//    private List<ShowTime> showTimes = new ArrayList<>();
 }

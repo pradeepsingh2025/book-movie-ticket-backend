@@ -31,7 +31,7 @@ public class Seat extends BaseModel {
     @Column(nullable = false)
     private SeatStatusEnum status;
 
-    @ManyToMany(mappedBy = "seats")
+    @ManyToMany(mappedBy = "seats", cascade = CascadeType.ALL)
     @JsonBackReference
     private List<Reservation> reservations;
 

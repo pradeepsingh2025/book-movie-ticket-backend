@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.transaction.annotation.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -26,23 +27,37 @@ public class ReservationServiceImpl implements ReservationService {
     @Transactional
     public Reservation createNewReservation(Reservation reservation) {
         try {
-            for(Seat seat: reservation.getSeats()) {
+            List<Seat> managedSeats = new ArrayList<>();
+
+            for (Seat detachedSeat : reservation.getSeats()) {
+                // Fetch the managed entity to ensure we update the live record
+                Seat seat = seatRepository.findById(detachedSeat.getId())
+                        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Seat not found"));
+
                 if (seat.getStatus() != SeatStatusEnum.ACTIVE) {
-                    throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Seat " + seat.getSeat() + " of this show can not be booked");
+                    throw new ResponseStatusException(HttpStatus.FORBIDDEN,
+                            "Seat " + seat.getSeat() + " of this show can not be booked");
                 }
 
-                boolean alreadyBooked = reservationRepository.existsByShowTime_IdAndSeats_Id(reservation.getShowTime().getId(), seat.getId());
+                boolean alreadyBooked = reservationRepository
+                        .existsByShowTime_IdAndSeats_Id(reservation.getShowTime().getId(), seat.getId());
 
                 if (alreadyBooked) {
-                    throw new ResponseStatusException(HttpStatus.CONFLICT, "Seat " + seat.getSeat() + " of this show is already booked");
+                    throw new ResponseStatusException(HttpStatus.CONFLICT,
+                            "Seat " + seat.getSeat() + " of this show is already booked");
                 }
 
                 seat.setStatus(SeatStatusEnum.INACTIVE);
-                
+                managedSeats.add(seat);
             }
-            // Seat-related checks removed — seats table and join table have been dropped
-            seatRepository.saveAll(reservation.getSeats());
+
+            // Save the updated seats and attach them to the reservation
+            seatRepository.saveAll(managedSeats);
+            reservation.setSeats(managedSeats);
+
             return reservationRepository.save(reservation);
+        } catch (ResponseStatusException e) {
+            throw e;
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         }

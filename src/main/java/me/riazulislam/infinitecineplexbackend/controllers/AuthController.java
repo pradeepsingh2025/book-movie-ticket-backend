@@ -9,7 +9,7 @@ import me.riazulislam.infinitecineplexbackend.dtos.LoginRequestDTO;
 import me.riazulislam.infinitecineplexbackend.dtos.LoginResponseDTO;
 import me.riazulislam.infinitecineplexbackend.dtos.UserDTO;
 import me.riazulislam.infinitecineplexbackend.dtos.SignupResponseDTO;
-import me.riazulislam.infinitecineplexbackend.models.Jwt;
+import me.riazulislam.infinitecineplexbackend.models.Jwt;   
 import me.riazulislam.infinitecineplexbackend.models.JwtResponse;
 import me.riazulislam.infinitecineplexbackend.models.AuthResult;
 import me.riazulislam.infinitecineplexbackend.services.AuthService;
