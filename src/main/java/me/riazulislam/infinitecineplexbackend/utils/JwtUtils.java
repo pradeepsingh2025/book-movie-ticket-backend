@@ -25,7 +25,6 @@ public class JwtUtils {
     }
 
     private Jwt generateToken(User user, long tokenExpiration) {
-        System.out.println("start generating tokens----------------------- " + tokenExpiration);
         var claims = Jwts.claims()
                 .subject(user.getId().toString())
                 .add("email", user.getEmail())
@@ -34,14 +33,10 @@ public class JwtUtils {
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis() + 1000 * tokenExpiration))
                 .build();
-        System.out.println("END generating tokens---------------------------------- " + tokenExpiration);
-        System.out.println("claims---------------------------------------" + claims);
-        System.out.println("secret key----------------------------------- " + jwtConfig.getSecretKey());
 
         Jwt token = new Jwt(claims, jwtConfig.getSecretKey());
 
-        System.out.println("printing token before returning--------------------------- " + token);
-        return new Jwt(claims, jwtConfig.getSecretKey());
+        return token;
     }
 
     public Jwt parseToken(String token) {
