@@ -1,6 +1,5 @@
 package me.riazulislam.infinitecineplexbackend.repositories;
 
-import me.riazulislam.infinitecineplexbackend.models.Movie;
 import me.riazulislam.infinitecineplexbackend.models.ShowTime;
 import me.riazulislam.infinitecineplexbackend.enums.DaysEnum;
 import org.springframework.data.jpa.repository.JpaRepository;

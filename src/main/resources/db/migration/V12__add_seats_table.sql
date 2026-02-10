@@ -14,6 +14,7 @@ CREATE TABLE halls
     CONSTRAINT uc_halls_code UNIQUE (code)
 );
 
+
 -- Create seats table
 CREATE TABLE seats
 (
