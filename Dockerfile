@@ -28,4 +28,4 @@ ENV PORT=8000
 EXPOSE 8000
 
 # Run the Spring Boot app
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-XX:MaxRAMPercentage=80.0", "-jar", "app.jar"]
