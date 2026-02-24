@@ -1,4 +1,4 @@
-package me.riazulislam.infinitecineplexbackend.models;
+package me.bookyourshow.backend.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;

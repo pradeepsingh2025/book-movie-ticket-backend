@@ -1,4 +1,4 @@
-package me.riazulislam.infinitecineplexbackend;
+package me.bookyourshow.backend;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.boot.SpringApplication;

@@ -1,12 +1,12 @@
-package me.riazulislam.infinitecineplexbackend.controllers;
+package me.bookyourshow.backend.controllers;
 
 import lombok.AllArgsConstructor;
-import me.riazulislam.infinitecineplexbackend.dtos.CreateShowTimeDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.ShowTimeDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.UpdateShowTimeDTO;
-import me.riazulislam.infinitecineplexbackend.mappers.ShowTimeMapper;
-import me.riazulislam.infinitecineplexbackend.models.ShowTime;
-import me.riazulislam.infinitecineplexbackend.services.ShowTimeService;
+import me.bookyourshow.backend.dtos.CreateShowTimeDTO;
+import me.bookyourshow.backend.dtos.ShowTimeDTO;
+import me.bookyourshow.backend.dtos.UpdateShowTimeDTO;
+import me.bookyourshow.backend.mappers.ShowTimeMapper;
+import me.bookyourshow.backend.models.ShowTime;
+import me.bookyourshow.backend.services.ShowTimeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

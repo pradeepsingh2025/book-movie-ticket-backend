@@ -1,4 +1,4 @@
-package me.riazulislam.infinitecineplexbackend.models;
+package me.bookyourshow.backend.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;

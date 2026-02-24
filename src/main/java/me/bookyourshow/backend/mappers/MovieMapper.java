@@ -1,13 +1,13 @@
-package me.riazulislam.infinitecineplexbackend.mappers;
+package me.bookyourshow.backend.mappers;
 
 import lombok.AllArgsConstructor;
-import me.riazulislam.infinitecineplexbackend.dtos.CreateMovieDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.GenreDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.MovieDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.UpdateMovieDTO;
-import me.riazulislam.infinitecineplexbackend.models.Genre;
-import me.riazulislam.infinitecineplexbackend.models.Movie;
-import me.riazulislam.infinitecineplexbackend.services.GenreService;
+import me.bookyourshow.backend.dtos.CreateMovieDTO;
+import me.bookyourshow.backend.dtos.GenreDTO;
+import me.bookyourshow.backend.dtos.MovieDTO;
+import me.bookyourshow.backend.dtos.UpdateMovieDTO;
+import me.bookyourshow.backend.models.Genre;
+import me.bookyourshow.backend.models.Movie;
+import me.bookyourshow.backend.services.GenreService;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

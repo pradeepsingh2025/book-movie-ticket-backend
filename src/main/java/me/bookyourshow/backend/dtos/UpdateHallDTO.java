@@ -1,8 +1,8 @@
-package me.riazulislam.infinitecineplexbackend.dtos;
+package me.bookyourshow.backend.dtos;
 
 import jakarta.validation.constraints.Min;
 import lombok.*;
-import me.riazulislam.infinitecineplexbackend.enums.HallType;
+import me.bookyourshow.backend.enums.HallType;
 
 import java.util.HashMap;
 import java.util.Map;

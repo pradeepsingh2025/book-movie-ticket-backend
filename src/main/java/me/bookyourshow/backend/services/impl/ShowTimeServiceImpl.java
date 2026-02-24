@@ -1,22 +1,22 @@
-package me.riazulislam.infinitecineplexbackend.services.impl;
+package me.bookyourshow.backend.services.impl;
 
 import lombok.AllArgsConstructor;
-import me.riazulislam.infinitecineplexbackend.dtos.UpdateShowTimeDTO;
-import me.riazulislam.infinitecineplexbackend.mappers.ShowTimeMapper;
-import me.riazulislam.infinitecineplexbackend.models.Hall;
-import me.riazulislam.infinitecineplexbackend.models.Seat;
-import me.riazulislam.infinitecineplexbackend.models.ShowTime;
-import me.riazulislam.infinitecineplexbackend.repositories.ShowTimeRepository;
+import me.bookyourshow.backend.dtos.UpdateShowTimeDTO;
+import me.bookyourshow.backend.mappers.ShowTimeMapper;
+import me.bookyourshow.backend.models.Hall;
+import me.bookyourshow.backend.models.Seat;
+import me.bookyourshow.backend.models.ShowTime;
+import me.bookyourshow.backend.repositories.ShowTimeRepository;
 
-import me.riazulislam.infinitecineplexbackend.repositories.SeatRepository;
-import me.riazulislam.infinitecineplexbackend.services.ShowTimeService;
+import me.bookyourshow.backend.repositories.SeatRepository;
+import me.bookyourshow.backend.services.ShowTimeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import jakarta.transaction.Transactional;
-import me.riazulislam.infinitecineplexbackend.enums.DaysEnum;
-import me.riazulislam.infinitecineplexbackend.enums.SeatStatusEnum;
+import me.bookyourshow.backend.enums.DaysEnum;
+import me.bookyourshow.backend.enums.SeatStatusEnum;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

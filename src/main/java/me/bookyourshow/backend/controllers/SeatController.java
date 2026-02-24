@@ -1,8 +1,8 @@
-package me.riazulislam.infinitecineplexbackend.controllers;
+package me.bookyourshow.backend.controllers;
 
-import me.riazulislam.infinitecineplexbackend.dtos.CreateSeatDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.SeatDTO;
-import me.riazulislam.infinitecineplexbackend.services.SeatService;
+import me.bookyourshow.backend.dtos.CreateSeatDTO;
+import me.bookyourshow.backend.dtos.SeatDTO;
+import me.bookyourshow.backend.services.SeatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

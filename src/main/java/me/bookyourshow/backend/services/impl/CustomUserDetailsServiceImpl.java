@@ -1,9 +1,9 @@
-package me.riazulislam.infinitecineplexbackend.services.impl;
+package me.bookyourshow.backend.services.impl;
 
 import lombok.AllArgsConstructor;
-import me.riazulislam.infinitecineplexbackend.models.User;
-import me.riazulislam.infinitecineplexbackend.repositories.UserRepository;
-import me.riazulislam.infinitecineplexbackend.services.CustomUserDetailsService;
+import me.bookyourshow.backend.models.User;
+import me.bookyourshow.backend.repositories.UserRepository;
+import me.bookyourshow.backend.services.CustomUserDetailsService;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,9 +1,9 @@
-package me.riazulislam.infinitecineplexbackend.services.impl;
+package me.bookyourshow.backend.services.impl;
 
 import lombok.AllArgsConstructor;
-import me.riazulislam.infinitecineplexbackend.models.Genre;
-import me.riazulislam.infinitecineplexbackend.repositories.GenreRepository;
-import me.riazulislam.infinitecineplexbackend.services.GenreService;
+import me.bookyourshow.backend.models.Genre;
+import me.bookyourshow.backend.repositories.GenreRepository;
+import me.bookyourshow.backend.services.GenreService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;

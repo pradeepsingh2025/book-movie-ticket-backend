@@ -1,7 +1,7 @@
-package me.riazulislam.infinitecineplexbackend.dtos;
+package me.bookyourshow.backend.dtos;
 
 import lombok.*;
-import me.riazulislam.infinitecineplexbackend.enums.DaysEnum;
+import me.bookyourshow.backend.enums.DaysEnum;
 
 @Builder
 @Getter

@@ -1,7 +1,7 @@
-package me.riazulislam.infinitecineplexbackend.mappers;
+package me.bookyourshow.backend.mappers;
 
-import me.riazulislam.infinitecineplexbackend.dtos.UserDTO;
-import me.riazulislam.infinitecineplexbackend.models.User;
+import me.bookyourshow.backend.dtos.UserDTO;
+import me.bookyourshow.backend.models.User;
 import org.springframework.stereotype.Component;
 
 @Component

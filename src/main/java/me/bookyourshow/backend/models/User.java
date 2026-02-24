@@ -1,9 +1,9 @@
-package me.riazulislam.infinitecineplexbackend.models;
+package me.bookyourshow.backend.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
-import me.riazulislam.infinitecineplexbackend.enums.RoleEnum;
+import me.bookyourshow.backend.enums.RoleEnum;
 
 import java.util.ArrayList;
 import java.util.List;

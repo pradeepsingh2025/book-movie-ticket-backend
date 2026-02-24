@@ -1,12 +1,11 @@
-package me.riazulislam.infinitecineplexbackend.services.impl;
+package me.bookyourshow.backend.services.impl;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import me.riazulislam.infinitecineplexbackend.dtos.UpdateMovieDTO;
-import me.riazulislam.infinitecineplexbackend.mappers.MovieMapper;
-import me.riazulislam.infinitecineplexbackend.models.Movie;
-import me.riazulislam.infinitecineplexbackend.repositories.MovieRepository;
-import me.riazulislam.infinitecineplexbackend.services.MovieService;
+import me.bookyourshow.backend.dtos.UpdateMovieDTO;
+import me.bookyourshow.backend.mappers.MovieMapper;
+import me.bookyourshow.backend.models.Movie;
+import me.bookyourshow.backend.repositories.MovieRepository;
+import me.bookyourshow.backend.services.MovieService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;

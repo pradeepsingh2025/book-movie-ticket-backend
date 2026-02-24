@@ -1,12 +1,12 @@
-package me.riazulislam.infinitecineplexbackend.controllers;
+package me.bookyourshow.backend.controllers;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import me.riazulislam.infinitecineplexbackend.dtos.CreateHallDTO ;
-import me.riazulislam.infinitecineplexbackend.dtos.HallDTO ;
-import me.riazulislam.infinitecineplexbackend.dtos.TimeFrameDTO ; 
-import me.riazulislam.infinitecineplexbackend.dtos.UpdateHallDTO ;
-import me.riazulislam.infinitecineplexbackend.services.HallService;
+import me.bookyourshow.backend.dtos.CreateHallDTO;
+import me.bookyourshow.backend.dtos.HallDTO;
+import me.bookyourshow.backend.dtos.TimeFrameDTO;
+import me.bookyourshow.backend.dtos.UpdateHallDTO;
+import me.bookyourshow.backend.services.HallService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,9 +1,9 @@
-package me.riazulislam.infinitecineplexbackend.models;
+package me.bookyourshow.backend.models;
 
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import me.riazulislam.infinitecineplexbackend.enums.RoleEnum;
+import me.bookyourshow.backend.enums.RoleEnum;
 
 import javax.crypto.SecretKey;
 import java.util.Date;

@@ -1,12 +1,12 @@
-package me.riazulislam.infinitecineplexbackend.dtos;
+package me.bookyourshow.backend.dtos;
 
 import lombok.*;
-import me.riazulislam.infinitecineplexbackend.enums.ShowStatusEnum;
+import me.bookyourshow.backend.enums.ShowStatusEnum;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.math.BigDecimal;
-import me.riazulislam.infinitecineplexbackend.enums.DaysEnum;
+import me.bookyourshow.backend.enums.DaysEnum;
 
 @Getter
 @Setter

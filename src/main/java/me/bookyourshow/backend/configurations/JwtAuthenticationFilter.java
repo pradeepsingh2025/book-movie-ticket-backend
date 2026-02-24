@@ -1,12 +1,12 @@
-package me.riazulislam.infinitecineplexbackend.configurations;
+package me.bookyourshow.backend.configurations;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
-import me.riazulislam.infinitecineplexbackend.models.Jwt;
-import me.riazulislam.infinitecineplexbackend.utils.JwtUtils;
+import me.bookyourshow.backend.models.Jwt;
+import me.bookyourshow.backend.utils.JwtUtils;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;

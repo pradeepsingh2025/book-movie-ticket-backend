@@ -1,4 +1,4 @@
-package me.riazulislam.infinitecineplexbackend.controllers;
+package me.bookyourshow.backend.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

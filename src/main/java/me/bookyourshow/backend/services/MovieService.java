@@ -1,7 +1,7 @@
-package me.riazulislam.infinitecineplexbackend.services;
+package me.bookyourshow.backend.services;
 
-import me.riazulislam.infinitecineplexbackend.dtos.UpdateMovieDTO;
-import me.riazulislam.infinitecineplexbackend.models.Movie;
+import me.bookyourshow.backend.dtos.UpdateMovieDTO;
+import me.bookyourshow.backend.models.Movie;
 
 import java.util.List;
 

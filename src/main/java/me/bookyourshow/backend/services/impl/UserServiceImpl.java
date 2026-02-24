@@ -1,14 +1,14 @@
-package me.riazulislam.infinitecineplexbackend.services.impl;
+package me.bookyourshow.backend.services.impl;
 
 import lombok.AllArgsConstructor;
-import me.riazulislam.infinitecineplexbackend.dtos.CreateUserDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.UpdateUserDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.UpdatePasswordDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.UserDTO;
-import me.riazulislam.infinitecineplexbackend.enums.RoleEnum;
-import me.riazulislam.infinitecineplexbackend.models.User;
-import me.riazulislam.infinitecineplexbackend.repositories.UserRepository;
-import me.riazulislam.infinitecineplexbackend.services.UserService;
+import me.bookyourshow.backend.dtos.CreateUserDTO;
+import me.bookyourshow.backend.dtos.UpdateUserDTO;
+import me.bookyourshow.backend.dtos.UpdatePasswordDTO;
+import me.bookyourshow.backend.dtos.UserDTO;
+import me.bookyourshow.backend.enums.RoleEnum;
+import me.bookyourshow.backend.models.User;
+import me.bookyourshow.backend.repositories.UserRepository;
+import me.bookyourshow.backend.services.UserService;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;

@@ -1,4 +1,4 @@
-package me.riazulislam.infinitecineplexbackend.models;
+package me.bookyourshow.backend.models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.*;
 import lombok.*;
-import me.riazulislam.infinitecineplexbackend.enums.HallType;
+import me.bookyourshow.backend.enums.HallType;
 
 @Getter
 @Setter

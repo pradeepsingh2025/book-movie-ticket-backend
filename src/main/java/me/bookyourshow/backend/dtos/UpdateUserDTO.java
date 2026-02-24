@@ -1,4 +1,4 @@
-package me.riazulislam.infinitecineplexbackend.dtos;
+package me.bookyourshow.backend.dtos;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;

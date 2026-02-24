@@ -1,8 +1,8 @@
-package me.riazulislam.infinitecineplexbackend.mappers;
+package me.bookyourshow.backend.mappers;
 
-import me.riazulislam.infinitecineplexbackend.dtos.CreateGenreDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.GenreDTO;
-import me.riazulislam.infinitecineplexbackend.models.Genre;
+import me.bookyourshow.backend.dtos.CreateGenreDTO;
+import me.bookyourshow.backend.dtos.GenreDTO;
+import me.bookyourshow.backend.models.Genre;
 import org.springframework.stereotype.Component;
 
 @Component

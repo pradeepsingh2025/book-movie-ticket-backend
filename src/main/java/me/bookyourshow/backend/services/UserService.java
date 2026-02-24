@@ -1,9 +1,9 @@
-package me.riazulislam.infinitecineplexbackend.services;
+package me.bookyourshow.backend.services;
 
-import me.riazulislam.infinitecineplexbackend.dtos.CreateUserDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.UpdateUserDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.UpdatePasswordDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.UserDTO;
+import me.bookyourshow.backend.dtos.CreateUserDTO;
+import me.bookyourshow.backend.dtos.UpdateUserDTO;
+import me.bookyourshow.backend.dtos.UpdatePasswordDTO;
+import me.bookyourshow.backend.dtos.UserDTO;
 
 import java.util.List;
 

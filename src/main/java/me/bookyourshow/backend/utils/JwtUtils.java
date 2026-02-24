@@ -1,12 +1,12 @@
-package me.riazulislam.infinitecineplexbackend.utils;
+package me.bookyourshow.backend.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import lombok.AllArgsConstructor;
-import me.riazulislam.infinitecineplexbackend.configurations.JwtConfig;
-import me.riazulislam.infinitecineplexbackend.models.Jwt;
-import me.riazulislam.infinitecineplexbackend.models.User;
+import me.bookyourshow.backend.configurations.JwtConfig;
+import me.bookyourshow.backend.models.Jwt;
+import me.bookyourshow.backend.models.User;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;

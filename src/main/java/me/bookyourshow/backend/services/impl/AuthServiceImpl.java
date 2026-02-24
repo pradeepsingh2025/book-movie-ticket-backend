@@ -1,21 +1,20 @@
-package me.riazulislam.infinitecineplexbackend.services.impl;
+package me.bookyourshow.backend.services.impl;
 
 import lombok.AllArgsConstructor;
-import me.riazulislam.infinitecineplexbackend.dtos.LoginRequestDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.LoginResponseDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.CreateUserDTO;
-import me.riazulislam.infinitecineplexbackend.models.AuthResult;
-import me.riazulislam.infinitecineplexbackend.models.Jwt;
-import me.riazulislam.infinitecineplexbackend.models.User;
-import me.riazulislam.infinitecineplexbackend.repositories.UserRepository;
-import me.riazulislam.infinitecineplexbackend.services.AuthService;
-import me.riazulislam.infinitecineplexbackend.services.UserService;
-import me.riazulislam.infinitecineplexbackend.utils.JwtUtils;
+import me.bookyourshow.backend.dtos.LoginRequestDTO;
+import me.bookyourshow.backend.dtos.UserDTO;
+import me.bookyourshow.backend.dtos.LoginResponseDTO;
+import me.bookyourshow.backend.dtos.CreateUserDTO;
+import me.bookyourshow.backend.models.AuthResult;
+import me.bookyourshow.backend.models.Jwt;
+import me.bookyourshow.backend.models.User;
+import me.bookyourshow.backend.repositories.UserRepository;
+import me.bookyourshow.backend.services.AuthService;
+import me.bookyourshow.backend.utils.JwtUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -52,7 +51,7 @@ public class AuthServiceImpl implements AuthService {
         System.out.println("accessToken and refreshToken generated-----------------------------");
 
         // Convert user to DTO
-        me.riazulislam.infinitecineplexbackend.dtos.UserDTO userDTO = me.riazulislam.infinitecineplexbackend.dtos.UserDTO
+        UserDTO userDTO = UserDTO
                 .builder()
                 .id(user.getId())
                 .email(user.getEmail())
@@ -83,7 +82,7 @@ public class AuthServiceImpl implements AuthService {
         Jwt refreshToken = jwtUtils.generateRefreshToken(user);
 
         // Convert user to DTO
-        me.riazulislam.infinitecineplexbackend.dtos.UserDTO userDTO = me.riazulislam.infinitecineplexbackend.dtos.UserDTO
+        UserDTO userDTO = UserDTO
                 .builder()
                 .id(user.getId())
                 .email(user.getEmail())

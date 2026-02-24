@@ -1,12 +1,12 @@
-package me.riazulislam.infinitecineplexbackend.controllers;
+package me.bookyourshow.backend.controllers;
 
 import lombok.AllArgsConstructor;
-import me.riazulislam.infinitecineplexbackend.dtos.CreateReservationDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.ReservationDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.UpdateReservationDTO;
-import me.riazulislam.infinitecineplexbackend.mappers.ReservationMapper;
-import me.riazulislam.infinitecineplexbackend.models.Reservation;
-import me.riazulislam.infinitecineplexbackend.services.ReservationService;
+import me.bookyourshow.backend.dtos.CreateReservationDTO;
+import me.bookyourshow.backend.dtos.ReservationDTO;
+import me.bookyourshow.backend.dtos.UpdateReservationDTO;
+import me.bookyourshow.backend.mappers.ReservationMapper;
+import me.bookyourshow.backend.models.Reservation;
+import me.bookyourshow.backend.services.ReservationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;

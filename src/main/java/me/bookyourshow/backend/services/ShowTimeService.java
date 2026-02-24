@@ -1,8 +1,8 @@
-package me.riazulislam.infinitecineplexbackend.services;
+package me.bookyourshow.backend.services;
 
-import me.riazulislam.infinitecineplexbackend.dtos.UpdateShowTimeDTO;
-import me.riazulislam.infinitecineplexbackend.enums.DaysEnum;
-import me.riazulislam.infinitecineplexbackend.models.ShowTime;
+import me.bookyourshow.backend.dtos.UpdateShowTimeDTO;
+import me.bookyourshow.backend.enums.DaysEnum;
+import me.bookyourshow.backend.models.ShowTime;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

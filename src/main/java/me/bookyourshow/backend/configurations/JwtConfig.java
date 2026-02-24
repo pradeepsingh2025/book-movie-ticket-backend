@@ -1,4 +1,4 @@
-package me.riazulislam.infinitecineplexbackend.configurations;
+package me.bookyourshow.backend.configurations;
 
 import io.jsonwebtoken.security.Keys;
 import lombok.Data;

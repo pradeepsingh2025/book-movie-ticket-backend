@@ -1,8 +1,8 @@
-package me.riazulislam.infinitecineplexbackend.dtos;
+package me.bookyourshow.backend.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import me.riazulislam.infinitecineplexbackend.models.Jwt;
+import me.bookyourshow.backend.models.Jwt;
 
 @AllArgsConstructor
 @Getter

@@ -1,11 +1,11 @@
-package me.riazulislam.infinitecineplexbackend.mappers;
+package me.bookyourshow.backend.mappers;
 
-import me.riazulislam.infinitecineplexbackend.dtos.CreateSeatDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.SeatDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.UpdateSeatDTO;
-import me.riazulislam.infinitecineplexbackend.models.Seat;
-import me.riazulislam.infinitecineplexbackend.models.ShowTime;
-import me.riazulislam.infinitecineplexbackend.models.Hall;
+import me.bookyourshow.backend.dtos.CreateSeatDTO;
+import me.bookyourshow.backend.dtos.SeatDTO;
+import me.bookyourshow.backend.dtos.UpdateSeatDTO;
+import me.bookyourshow.backend.models.Seat;
+import me.bookyourshow.backend.models.ShowTime;
+import me.bookyourshow.backend.models.Hall;
 import org.springframework.stereotype.Component;
 
 @Component

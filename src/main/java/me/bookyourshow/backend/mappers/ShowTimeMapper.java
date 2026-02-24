@@ -1,17 +1,16 @@
-package me.riazulislam.infinitecineplexbackend.mappers;
+package me.bookyourshow.backend.mappers;
 
 import lombok.AllArgsConstructor;
-import me.riazulislam.infinitecineplexbackend.dtos.CreateShowTimeDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.MovieDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.ShowTimeDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.UpdateShowTimeDTO;
-import me.riazulislam.infinitecineplexbackend.models.Hall;
-import me.riazulislam.infinitecineplexbackend.models.Movie;
-import me.riazulislam.infinitecineplexbackend.models.ShowTime;
-import me.riazulislam.infinitecineplexbackend.models.Reservation;
-import me.riazulislam.infinitecineplexbackend.repositories.HallRepository;
-import me.riazulislam.infinitecineplexbackend.repositories.MovieRepository;
-import me.riazulislam.infinitecineplexbackend.mappers.MovieMapper;
+import me.bookyourshow.backend.enums.DaysEnum;
+import me.bookyourshow.backend.dtos.CreateShowTimeDTO;
+import me.bookyourshow.backend.dtos.ShowTimeDTO;
+import me.bookyourshow.backend.dtos.UpdateShowTimeDTO;
+import me.bookyourshow.backend.models.Hall;
+import me.bookyourshow.backend.models.Movie;
+import me.bookyourshow.backend.models.ShowTime;
+import me.bookyourshow.backend.models.Reservation;
+import me.bookyourshow.backend.repositories.HallRepository;
+import me.bookyourshow.backend.repositories.MovieRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -26,17 +25,17 @@ public class ShowTimeMapper {
     private final MovieMapper movieMapper;
     private final HallMapper hallMapper;
 
-    private me.riazulislam.infinitecineplexbackend.enums.DaysEnum dayFromDate(java.time.LocalDate date) {
+    private DaysEnum dayFromDate(java.time.LocalDate date) {
         if (date == null) return null;
         java.time.DayOfWeek dow = date.getDayOfWeek();
         switch (dow) {
-            case MONDAY: return me.riazulislam.infinitecineplexbackend.enums.DaysEnum.Monday;
-            case TUESDAY: return me.riazulislam.infinitecineplexbackend.enums.DaysEnum.Tuesday;
-            case WEDNESDAY: return me.riazulislam.infinitecineplexbackend.enums.DaysEnum.Wednesday;
-            case THURSDAY: return me.riazulislam.infinitecineplexbackend.enums.DaysEnum.Thursday;
-            case FRIDAY: return me.riazulislam.infinitecineplexbackend.enums.DaysEnum.Friday;
-            case SATURDAY: return me.riazulislam.infinitecineplexbackend.enums.DaysEnum.Saturday;
-            case SUNDAY: return me.riazulislam.infinitecineplexbackend.enums.DaysEnum.Sunday;
+            case MONDAY: return DaysEnum.Monday;
+            case TUESDAY: return DaysEnum.Tuesday;
+            case WEDNESDAY: return DaysEnum.Wednesday;
+            case THURSDAY: return DaysEnum.Thursday;
+            case FRIDAY: return DaysEnum.Friday;
+            case SATURDAY: return DaysEnum.Saturday;
+            case SUNDAY: return DaysEnum.Sunday;
             default: return null;
         }
     }
@@ -49,7 +48,7 @@ public class ShowTimeMapper {
             hall = hallRepository.findById(showTimeDTO.getHallId()).orElseThrow(() -> new RuntimeException("Hall not found"));
         }
 
-        me.riazulislam.infinitecineplexbackend.enums.DaysEnum day = showTimeDTO.getDay() != null ? showTimeDTO.getDay() : dayFromDate(showTimeDTO.getShowDate());
+        DaysEnum day = showTimeDTO.getDay() != null ? showTimeDTO.getDay() : dayFromDate(showTimeDTO.getShowDate());
 
         return ShowTime.builder()
                 .showStatus(showTimeDTO.getStatus())

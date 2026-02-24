@@ -1,6 +1,4 @@
-package me.riazulislam.infinitecineplexbackend.models;
-
-import me.riazulislam.infinitecineplexbackend.models.User;
+package me.bookyourshow.backend.models;
 
 public class AuthResult {
 

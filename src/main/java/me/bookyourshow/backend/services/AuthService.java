@@ -1,9 +1,9 @@
-package me.riazulislam.infinitecineplexbackend.services;
+package me.bookyourshow.backend.services;
 
-import me.riazulislam.infinitecineplexbackend.dtos.LoginRequestDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.LoginResponseDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.CreateUserDTO;
-import me.riazulislam.infinitecineplexbackend.models.AuthResult;
+import me.bookyourshow.backend.dtos.LoginRequestDTO;
+import me.bookyourshow.backend.dtos.LoginResponseDTO;
+import me.bookyourshow.backend.dtos.CreateUserDTO;
+import me.bookyourshow.backend.models.AuthResult;
 
 public interface AuthService {
     LoginResponseDTO login(LoginRequestDTO loginRequestDTO);

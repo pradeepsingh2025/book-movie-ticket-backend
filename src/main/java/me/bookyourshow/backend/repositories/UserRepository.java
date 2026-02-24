@@ -1,6 +1,6 @@
-package me.riazulislam.infinitecineplexbackend.repositories;
+package me.bookyourshow.backend.repositories;
 
-import me.riazulislam.infinitecineplexbackend.models.User;
+import me.bookyourshow.backend.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

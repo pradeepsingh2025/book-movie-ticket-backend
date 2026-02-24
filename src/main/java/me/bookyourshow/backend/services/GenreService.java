@@ -1,6 +1,6 @@
-package me.riazulislam.infinitecineplexbackend.services;
+package me.bookyourshow.backend.services;
 
-import me.riazulislam.infinitecineplexbackend.models.Genre;
+import me.bookyourshow.backend.models.Genre;
 
 public interface GenreService {
     Genre getGenreById(Long id);

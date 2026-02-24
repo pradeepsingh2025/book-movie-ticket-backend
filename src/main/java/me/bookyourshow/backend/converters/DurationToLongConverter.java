@@ -1,4 +1,4 @@
-package me.riazulislam.infinitecineplexbackend.converters;
+package me.bookyourshow.backend.converters;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;

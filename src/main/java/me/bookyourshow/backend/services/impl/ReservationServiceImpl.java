@@ -1,14 +1,14 @@
-package me.riazulislam.infinitecineplexbackend.services.impl;
+package me.bookyourshow.backend.services.impl;
 
 import lombok.AllArgsConstructor;
-import me.riazulislam.infinitecineplexbackend.dtos.UpdateReservationDTO;
-import me.riazulislam.infinitecineplexbackend.enums.SeatStatusEnum;
-import me.riazulislam.infinitecineplexbackend.mappers.ReservationMapper;
-import me.riazulislam.infinitecineplexbackend.models.Reservation;
-import me.riazulislam.infinitecineplexbackend.models.Seat;
-import me.riazulislam.infinitecineplexbackend.repositories.ReservationRepository;
-import me.riazulislam.infinitecineplexbackend.repositories.SeatRepository;
-import me.riazulislam.infinitecineplexbackend.services.ReservationService;
+import me.bookyourshow.backend.dtos.UpdateReservationDTO;
+import me.bookyourshow.backend.enums.SeatStatusEnum;
+import me.bookyourshow.backend.mappers.ReservationMapper;
+import me.bookyourshow.backend.models.Reservation;
+import me.bookyourshow.backend.models.Seat;
+import me.bookyourshow.backend.repositories.ReservationRepository;
+import me.bookyourshow.backend.repositories.SeatRepository;
+import me.bookyourshow.backend.services.ReservationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;

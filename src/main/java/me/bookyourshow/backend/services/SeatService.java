@@ -1,7 +1,7 @@
-package me.riazulislam.infinitecineplexbackend.services;
+package me.bookyourshow.backend.services;
 
-import me.riazulislam.infinitecineplexbackend.dtos.CreateSeatDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.SeatDTO;
+import me.bookyourshow.backend.dtos.CreateSeatDTO;
+import me.bookyourshow.backend.dtos.SeatDTO;
 
 import java.util.List;
 

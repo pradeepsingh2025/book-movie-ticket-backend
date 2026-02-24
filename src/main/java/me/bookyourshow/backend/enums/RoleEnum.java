@@ -1,4 +1,4 @@
-package me.riazulislam.infinitecineplexbackend.enums;
+package me.bookyourshow.backend.enums;
 
 public enum RoleEnum {
     USER,

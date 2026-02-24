@@ -1,4 +1,4 @@
-package me.riazulislam.infinitecineplexbackend.exceptions;
+package me.bookyourshow.backend.exceptions;
 
 import io.jsonwebtoken.JwtException;
 import jakarta.validation.ConstraintViolationException;

@@ -1,15 +1,13 @@
-package me.riazulislam.infinitecineplexbackend.models;
+package me.bookyourshow.backend.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
-import me.riazulislam.infinitecineplexbackend.enums.DaysEnum;
-import me.riazulislam.infinitecineplexbackend.enums.ShowStatusEnum;
+import me.bookyourshow.backend.enums.DaysEnum;
+import me.bookyourshow.backend.enums.ShowStatusEnum;
 
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.math.BigDecimal;
 

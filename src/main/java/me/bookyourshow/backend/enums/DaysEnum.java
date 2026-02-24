@@ -1,10 +1,10 @@
-package me.riazulislam.infinitecineplexbackend.enums;
+package me.bookyourshow.backend.enums;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import me.riazulislam.infinitecineplexbackend.configurations.DaysEnumDeserializer;
-import me.riazulislam.infinitecineplexbackend.configurations.DaysEnumSerializer;
+import me.bookyourshow.backend.configurations.DaysEnumDeserializer;
+import me.bookyourshow.backend.configurations.DaysEnumSerializer;
 
 @JsonSerialize(using = DaysEnumSerializer.class)
 @JsonDeserialize(using = DaysEnumDeserializer.class)

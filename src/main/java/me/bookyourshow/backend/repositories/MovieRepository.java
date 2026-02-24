@@ -1,6 +1,6 @@
-package me.riazulislam.infinitecineplexbackend.repositories;
+package me.bookyourshow.backend.repositories;
 
-import me.riazulislam.infinitecineplexbackend.models.Movie;
+import me.bookyourshow.backend.models.Movie;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MovieRepository extends JpaRepository<Movie, Long> {

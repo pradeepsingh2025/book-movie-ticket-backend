@@ -1,7 +1,7 @@
-package me.riazulislam.infinitecineplexbackend.repositories;
+package me.bookyourshow.backend.repositories;
 
-import me.riazulislam.infinitecineplexbackend.models.ShowTime;
-import me.riazulislam.infinitecineplexbackend.enums.DaysEnum;
+import me.bookyourshow.backend.models.ShowTime;
+import me.bookyourshow.backend.enums.DaysEnum;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

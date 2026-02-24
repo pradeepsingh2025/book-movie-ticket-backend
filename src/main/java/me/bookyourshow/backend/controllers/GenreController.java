@@ -1,10 +1,10 @@
-package me.riazulislam.infinitecineplexbackend.controllers;
+package me.bookyourshow.backend.controllers;
 
 import lombok.AllArgsConstructor;
-import me.riazulislam.infinitecineplexbackend.dtos.CreateGenreDTO;
-import me.riazulislam.infinitecineplexbackend.mappers.GenreMapper;
-import me.riazulislam.infinitecineplexbackend.models.Genre;
-import me.riazulislam.infinitecineplexbackend.services.GenreService;
+import me.bookyourshow.backend.dtos.CreateGenreDTO;
+import me.bookyourshow.backend.mappers.GenreMapper;
+import me.bookyourshow.backend.models.Genre;
+import me.bookyourshow.backend.services.GenreService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,8 +1,8 @@
-package me.riazulislam.infinitecineplexbackend.services;
+package me.bookyourshow.backend.services;
 
-import me.riazulislam.infinitecineplexbackend.dtos.CreateHallDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.HallDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.UpdateHallDTO;
+import me.bookyourshow.backend.dtos.CreateHallDTO;
+import me.bookyourshow.backend.dtos.HallDTO;
+import me.bookyourshow.backend.dtos.UpdateHallDTO;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

@@ -1,7 +1,7 @@
-package me.riazulislam.infinitecineplexbackend.dtos;
+package me.bookyourshow.backend.dtos;
 
 import lombok.*;
-import me.riazulislam.infinitecineplexbackend.models.User;
+import me.bookyourshow.backend.models.User;
 
 @Builder
 @Getter

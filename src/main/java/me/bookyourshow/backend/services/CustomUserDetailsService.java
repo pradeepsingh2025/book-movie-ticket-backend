@@ -1,4 +1,4 @@
-package me.riazulislam.infinitecineplexbackend.services;
+package me.bookyourshow.backend.services;
 
 import org.springframework.security.core.userdetails.UserDetails;
 

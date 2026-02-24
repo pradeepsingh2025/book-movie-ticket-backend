@@ -1,15 +1,15 @@
-package me.riazulislam.infinitecineplexbackend.services.impl;
+package me.bookyourshow.backend.services.impl;
 
-import me.riazulislam.infinitecineplexbackend.dtos.CreateSeatDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.SeatDTO;
-import me.riazulislam.infinitecineplexbackend.mappers.SeatMapper;
-import me.riazulislam.infinitecineplexbackend.models.Hall;
-import me.riazulislam.infinitecineplexbackend.models.Seat;
-import me.riazulislam.infinitecineplexbackend.models.ShowTime;
-import me.riazulislam.infinitecineplexbackend.repositories.HallRepository;
-import me.riazulislam.infinitecineplexbackend.repositories.SeatRepository;
-import me.riazulislam.infinitecineplexbackend.repositories.ShowTimeRepository;
-import me.riazulislam.infinitecineplexbackend.services.SeatService;
+import me.bookyourshow.backend.dtos.CreateSeatDTO;
+import me.bookyourshow.backend.dtos.SeatDTO;
+import me.bookyourshow.backend.mappers.SeatMapper;
+import me.bookyourshow.backend.models.Hall;
+import me.bookyourshow.backend.models.Seat;
+import me.bookyourshow.backend.models.ShowTime;
+import me.bookyourshow.backend.repositories.HallRepository;
+import me.bookyourshow.backend.repositories.SeatRepository;
+import me.bookyourshow.backend.repositories.ShowTimeRepository;
+import me.bookyourshow.backend.services.SeatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

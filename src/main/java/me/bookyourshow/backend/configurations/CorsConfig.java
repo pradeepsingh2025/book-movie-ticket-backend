@@ -1,4 +1,4 @@
-package me.riazulislam.infinitecineplexbackend.configurations;
+package me.bookyourshow.backend.configurations;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

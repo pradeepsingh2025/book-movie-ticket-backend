@@ -1,14 +1,14 @@
-package me.riazulislam.infinitecineplexbackend.services.impl;
+package me.bookyourshow.backend.services.impl;
 
 import lombok.RequiredArgsConstructor;
-import me.riazulislam.infinitecineplexbackend.dtos.CreateHallDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.HallDTO;
-import me.riazulislam.infinitecineplexbackend.dtos.UpdateHallDTO;
-import me.riazulislam.infinitecineplexbackend.mappers.HallMapper;
-import me.riazulislam.infinitecineplexbackend.models.Hall;
-import me.riazulislam.infinitecineplexbackend.repositories.HallRepository;
-import me.riazulislam.infinitecineplexbackend.repositories.ShowTimeRepository;
-import me.riazulislam.infinitecineplexbackend.services.HallService;
+import me.bookyourshow.backend.dtos.CreateHallDTO;
+import me.bookyourshow.backend.dtos.HallDTO;
+import me.bookyourshow.backend.dtos.UpdateHallDTO;
+import me.bookyourshow.backend.mappers.HallMapper;
+import me.bookyourshow.backend.models.Hall;
+import me.bookyourshow.backend.repositories.HallRepository;
+import me.bookyourshow.backend.repositories.ShowTimeRepository;
+import me.bookyourshow.backend.services.HallService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

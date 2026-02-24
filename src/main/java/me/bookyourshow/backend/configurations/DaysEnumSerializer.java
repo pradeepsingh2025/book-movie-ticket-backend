@@ -1,9 +1,9 @@
-package me.riazulislam.infinitecineplexbackend.configurations;
+package me.bookyourshow.backend.configurations;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import me.riazulislam.infinitecineplexbackend.enums.DaysEnum;
+import me.bookyourshow.backend.enums.DaysEnum;
 
 import java.io.IOException;
 

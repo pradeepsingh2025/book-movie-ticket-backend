@@ -1,7 +1,7 @@
-package me.riazulislam.infinitecineplexbackend.configurations;
+package me.bookyourshow.backend.configurations;
 
 import lombok.AllArgsConstructor;
-import me.riazulislam.infinitecineplexbackend.enums.RoleEnum;
+import me.bookyourshow.backend.enums.RoleEnum;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
