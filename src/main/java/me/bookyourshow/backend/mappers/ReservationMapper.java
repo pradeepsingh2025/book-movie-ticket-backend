@@ -37,33 +37,43 @@ public class ReservationMapper {
         if (userId == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User id cannot be null");
         }
-        User user = userRepository.findById(userId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User with " + userId + " not found"));
+        User user = userRepository.findById(userId).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User with " + userId + " not found"));
 
         Long showTimeId = reservationDTO.getShowTimeId();
         if (showTimeId == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Show time id cannot be null");
         }
-        ShowTime showTime = showTimeRepository.findById(showTimeId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Show time with " + showTimeId + " not found"));
+        ShowTime showTime = showTimeRepository.findById(showTimeId).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Show time with " + showTimeId + " not found"));
 
-        for(Long id: seatIds) {
+        Reservation reservation = Reservation.builder()
+                .user(user)
+                .showTime(showTime)
+                .build();
+
+        List<me.bookyourshow.backend.models.ReservationSeat> reservationSeats = new ArrayList<>();
+        for (Long id : seatIds) {
             if (id == null) {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Seat id cannot be null");
             }
-            seats.add(seatRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Seat with " + id + " not found")));
+            Seat seat = seatRepository.findById(id).orElseThrow(
+                    () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Seat with " + id + " not found"));
+            reservationSeats.add(me.bookyourshow.backend.models.ReservationSeat.builder()
+                    .reservation(reservation)
+                    .seat(seat)
+                    .build());
         }
+        reservation.setReservationSeats(reservationSeats);
 
-        return Reservation.builder()
-                .user(user)
-                .showTime(showTime)
-                .seats(seats)
-                .build();
+        return reservation;
     }
 
     public ReservationDTO toDTO(Reservation reservation) {
         List<SeatDTO> reservationSeats = new ArrayList<>();
 
-        for(Seat seat: reservation.getSeats()){
-            reservationSeats.add(seatMapper.toDTO(seat));
+        for (me.bookyourshow.backend.models.ReservationSeat rs : reservation.getReservationSeats()) {
+            reservationSeats.add(seatMapper.toDTO(rs.getSeat()));
         }
 
         return ReservationDTO.builder()
@@ -75,19 +85,29 @@ public class ReservationMapper {
 
     public Reservation updateModel(Reservation existing, UpdateReservationDTO dto) {
         if (dto.getUser_id() != null) {
-            User user = userRepository.findById(dto.getUser_id()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User with " + dto.getUser_id() + " not found"));
+            User user = userRepository.findById(dto.getUser_id())
+                    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                            "User with " + dto.getUser_id() + " not found"));
             existing.setUser(user);
         }
         if (dto.getShow_time_id() != null) {
-            ShowTime showTime = showTimeRepository.findById(dto.getShow_time_id()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Show time with " + dto.getShow_time_id() + " not found"));
+            ShowTime showTime = showTimeRepository.findById(dto.getShow_time_id())
+                    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                            "Show time with " + dto.getShow_time_id() + " not found"));
             existing.setShowTime(showTime);
         }
         if (dto.getReservation_seats_id() != null) {
-            List<Seat> seats = new ArrayList<>();
+            List<me.bookyourshow.backend.models.ReservationSeat> newReservationSeats = new ArrayList<>();
             for (Long id : dto.getReservation_seats_id()) {
-                seats.add(seatRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Seat with " + id + " not found")));
+                Seat seat = seatRepository.findById(id).orElseThrow(
+                        () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Seat with " + id + " not found"));
+                newReservationSeats.add(me.bookyourshow.backend.models.ReservationSeat.builder()
+                        .reservation(existing)
+                        .seat(seat)
+                        .build());
             }
-            existing.setSeats(seats);
+            existing.getReservationSeats().clear();
+            existing.getReservationSeats().addAll(newReservationSeats);
         }
         // reservation seats removed — no-op
         return existing;

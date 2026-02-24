@@ -29,9 +29,9 @@ public class ReservationServiceImpl implements ReservationService {
         try {
             List<Seat> managedSeats = new ArrayList<>();
 
-            for (Seat detachedSeat : reservation.getSeats()) {
+            for (me.bookyourshow.backend.models.ReservationSeat rs : reservation.getReservationSeats()) {
                 // Fetch the managed entity to ensure we update the live record
-                Seat seat = seatRepository.findById(detachedSeat.getId())
+                Seat seat = seatRepository.findById(rs.getSeat().getId())
                         .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Seat not found"));
 
                 if (seat.getStatus() != SeatStatusEnum.ACTIVE) {
@@ -49,11 +49,11 @@ public class ReservationServiceImpl implements ReservationService {
 
                 seat.setStatus(SeatStatusEnum.INACTIVE);
                 managedSeats.add(seat);
+                rs.setSeat(seat);
             }
 
             // Save the updated seats and attach them to the reservation
             seatRepository.saveAll(managedSeats);
-            reservation.setSeats(managedSeats);
 
             return reservationRepository.save(reservation);
         } catch (ResponseStatusException e) {

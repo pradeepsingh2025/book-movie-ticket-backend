@@ -14,7 +14,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "reservations")
-public class Reservation extends BaseModel{
+public class Reservation extends BaseModel {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "show_id", nullable = false)
     @JsonManagedReference
@@ -24,15 +24,6 @@ public class Reservation extends BaseModel{
     @JoinColumn(name = "user_id", nullable = false)
     @JsonManagedReference
     private User user;
-
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(
-            name = "reservation_seats",
-            joinColumns = @JoinColumn(name = "reservation_id"),
-            inverseJoinColumns = @JoinColumn(name = "seat_id")
-    )
-    @JsonManagedReference
-    private List<Seat> seats = new ArrayList<>();
 
     @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
