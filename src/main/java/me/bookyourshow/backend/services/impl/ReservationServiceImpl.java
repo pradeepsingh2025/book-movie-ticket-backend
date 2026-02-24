@@ -40,7 +40,8 @@ public class ReservationServiceImpl implements ReservationService {
                 }
 
                 boolean alreadyBooked = reservationRepository
-                        .existsByShowTime_IdAndSeats_Id(reservation.getShowTime().getId(), seat.getId());
+                        .existsByShowTime_IdAndReservationSeats_Seat_Id(reservation.getShowTime().getId(),
+                                seat.getId());
 
                 if (alreadyBooked) {
                     throw new ResponseStatusException(HttpStatus.CONFLICT,
