@@ -24,9 +24,7 @@ public class ReservationController {
 
     @PostMapping
     public ResponseEntity<?> createReservation(@RequestBody CreateReservationDTO reservationDTO) {
-        System.out.println("reservation---------------------------------------------------"+ reservationDTO);
         Reservation createdReservation = reservationService.createNewReservation(reservationMapper.toModel(reservationDTO));
-        System.out.println("after reservation before returning from createReservation----------------"+ createdReservation);
         return ResponseEntity.status(HttpStatus.CREATED).body(reservationMapper.toDTO(createdReservation));
     }
 

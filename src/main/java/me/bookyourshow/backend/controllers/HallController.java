@@ -34,19 +34,9 @@ public class HallController {
     
     @GetMapping
     public ResponseEntity<List<HallDTO>> getAllHalls() {
-        System.out.println("hall controller for getting all halls---------------|||||||||||||||||||----------------------------------");
         List<HallDTO> halls = hallService.getAllHalls();
         return ResponseEntity.ok(halls);
     }
-
-    // @PostMapping("/available")
-    // public ResponseEntity<List<HallDTO>> getAvailableHalls(@Valid @RequestBody TimeFrameDTO timeFrameDto) {
-    //     List<HallDTO> availableHalls = hallService.getAvailableHalls(
-    //             timeFrameDto.getStartTime(), 
-    //             timeFrameDto.getEndTime()
-    //     );
-    //     return ResponseEntity.ok(availableHalls);
-    // }
 
     @PostMapping("/available")
     public ResponseEntity<List<HallDTO>> getAvailableHalls(@Valid @RequestBody TimeFrameDTO timeFrameDto) {

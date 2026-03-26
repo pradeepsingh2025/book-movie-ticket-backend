@@ -45,7 +45,7 @@ public interface ShowTimeRepository extends JpaRepository<ShowTime, Long> {
     );
 
     /**
-     * 🔑 NEW — Find hall IDs that are busy (have overlapping shows)
+     * Find hall IDs that are busy (have overlapping shows)
      * Used to determine available halls for a given date + time interval.
      */
     @Query("""

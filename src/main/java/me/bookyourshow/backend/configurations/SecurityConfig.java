@@ -53,8 +53,7 @@ public class SecurityConfig {
                             String path = request.getRequestURI();
                             String method = request.getMethod();
                             return (method.equals("POST") || method.equals("PUT") || method.equals("DELETE")) &&
-                                    (path.startsWith("/api/movies/") || path.startsWith("/api/genres/") ||
-                                            path.startsWith("/api/time-slots/") || path.startsWith("/api/day-time-slots/"));
+                                    (path.startsWith("/api/movies/") || path.startsWith("/api/genres/"));
                         }).hasRole(RoleEnum.ADMIN.name())
                         .requestMatchers(HttpMethod.GET, "/api/users").hasRole(RoleEnum.ADMIN.name())
                         .requestMatchers(HttpMethod.GET, "/api/halls/available").hasRole(RoleEnum.ADMIN.name())
