@@ -17,7 +17,6 @@ public class GenreController {
     private final GenreService genreService;
     private final GenreMapper genreMapper;
 
-    //for admin only
     @PostMapping
     public Genre createGenre(@RequestBody CreateGenreDTO genreDTO) {
         return genreService.createGenre(genreMapper.toEntity(genreDTO));

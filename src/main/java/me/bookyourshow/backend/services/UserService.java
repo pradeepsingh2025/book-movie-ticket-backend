@@ -10,6 +10,8 @@ import java.util.List;
 public interface UserService {
     UserDTO createNewUser(CreateUserDTO user);
 
+    UserDTO createAdminUser(CreateUserDTO user);
+
     List<UserDTO> getAllUsers();
 
     UserDTO getUserById(Long id);

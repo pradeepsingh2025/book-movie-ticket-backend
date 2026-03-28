@@ -1,9 +1,6 @@
 package me.bookyourshow.backend.controllers;
 
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import me.bookyourshow.backend.dtos.UpdateUserDTO;
-import me.bookyourshow.backend.dtos.UpdatePasswordDTO;
 import me.bookyourshow.backend.dtos.UserDTO;
 import me.bookyourshow.backend.services.UserService;
 import org.springframework.http.ResponseEntity;
@@ -27,23 +24,5 @@ public class UserController {
     public ResponseEntity<UserDTO> getUserById(@PathVariable Long id) {
         UserDTO user = userService.getUserById(id);
         return ResponseEntity.ok(user);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<UserDTO> updateUser(@PathVariable Long id, @Valid @RequestBody UpdateUserDTO updateUserDTO) {
-        UserDTO updatedUser = userService.updateUser(id, updateUserDTO);
-        return ResponseEntity.ok(updatedUser);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
-        userService.deleteUser(id);
-        return ResponseEntity.noContent().build();
-    }
-
-    @PatchMapping("/{id}/password")
-    public ResponseEntity<Void> updatePassword(@PathVariable Long id, @Valid @RequestBody UpdatePasswordDTO updatePasswordDTO) {
-        userService.updatePassword(id, updatePasswordDTO);
-        return ResponseEntity.noContent().build();
     }
 }

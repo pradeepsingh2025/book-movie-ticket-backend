@@ -2,7 +2,7 @@ package me.bookyourshow.backend.controllers;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import me.bookyourshow.backend.configurations.JwtConfig;
 import me.bookyourshow.backend.dtos.CreateUserDTO;
 import me.bookyourshow.backend.dtos.LoginRequestDTO;
@@ -13,6 +13,7 @@ import me.bookyourshow.backend.models.JwtResponse;
 import me.bookyourshow.backend.models.AuthResult;
 import me.bookyourshow.backend.services.AuthService;
 import me.bookyourshow.backend.services.UserService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -21,7 +22,7 @@ import org.springframework.web.bind.MissingRequestCookieException;
 
 import jakarta.validation.Valid;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -29,12 +30,42 @@ public class AuthController {
     private final AuthService authService;
     private final JwtConfig jwtConfig;
 
+    @Value("${admin.signup.secret}")
+    private String adminSignupSecret;
+
     @PostMapping("/signup")
     public ResponseEntity<SignupResponseDTO> signUp(@Valid @RequestBody CreateUserDTO user,
             HttpServletResponse response) {
 
-        // It returns created user DTO from createNewUser
-        UserDTO createdUser = userService.createNewUser(user);
+        userService.createNewUser(user);
+
+        LoginResponseDTO loginResponse = authService.signup(user);
+
+        // Store refresh token in HttpOnly cookie
+        addRefreshTokenCookie(
+                response,
+                loginResponse.getRefreshToken().toString());
+
+        SignupResponseDTO responseBody = new SignupResponseDTO(
+                loginResponse.getUser(),
+                loginResponse.getAccessToken().toString());
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseBody);
+    }
+
+    @PostMapping("/signup/admin")
+    public ResponseEntity<SignupResponseDTO> adminSignUp(
+            @RequestParam(value = "adminSecret") String paramSecret,
+            @Valid @RequestBody CreateUserDTO user,
+            HttpServletResponse response) {
+
+        String secret = paramSecret;
+
+        if (secret == null || !secret.equals(adminSignupSecret)) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+
+        userService.createAdminUser(user);
 
         LoginResponseDTO loginResponse = authService.signup(user);
 

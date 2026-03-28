@@ -28,6 +28,16 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public UserDTO createNewUser(CreateUserDTO user) {
+        return createUserWithRole(user, RoleEnum.USER);
+    }
+
+    @Override
+    @Transactional
+    public UserDTO createAdminUser(CreateUserDTO user) {
+        return createUserWithRole(user, RoleEnum.ADMIN);
+    }
+
+    private UserDTO createUserWithRole(CreateUserDTO user, RoleEnum role) {
         // Normalize email early to avoid case or surrounding whitespace producing
         // duplicate entries (e.g., "User@Example.com" vs "user@example.com").
         String normalizedEmail = user.getEmail() == null ? null : user.getEmail().trim().toLowerCase();
@@ -42,17 +52,14 @@ public class UserServiceImpl implements UserService {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Email already registered");
         }
 
-        
-
         String encoded = passwordEncoder.encode(user.getPassword());
 
-        
         User newUser = User.builder()
                 .email(normalizedEmail)
                 .password(encoded)
                 .name(user.getName())
                 .phoneNumber(user.getPhoneNumber())
-                .role(RoleEnum.USER)
+                .role(role)
                 .build();
 
         User createdUser;
