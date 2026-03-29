@@ -8,6 +8,7 @@ import me.bookyourshow.backend.enums.ShowStatusEnum;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.math.BigDecimal;
 
@@ -47,9 +48,13 @@ public class ShowTime extends BaseModel {
     @Column(nullable = false)
     private DaysEnum day;
 
-    @OneToMany(mappedBy = "showTime")
+    @OneToMany(mappedBy = "showTime", cascade = CascadeType.REMOVE)
     @JsonBackReference
     private List<Reservation> reservations;
+
+    @OneToMany(mappedBy = "showTime", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    private List<Seat> seats = new ArrayList<>();
 
     @Column(name = "price", nullable = false)
     private BigDecimal price;

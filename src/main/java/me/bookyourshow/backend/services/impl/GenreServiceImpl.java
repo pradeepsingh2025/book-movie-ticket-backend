@@ -7,6 +7,7 @@ import me.bookyourshow.backend.services.GenreService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+import java.util.List;
 
 @AllArgsConstructor
 @Service
@@ -29,6 +30,15 @@ public class GenreServiceImpl implements GenreService {
     public Genre createGenre(Genre genre) {
         try {
             return genreRepository.save(genre);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Genre> getAllGenres() {
+        try {
+            return genreRepository.findAll();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
